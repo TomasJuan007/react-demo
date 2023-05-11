@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cal-Heatmap</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/cal-heatmap/dist/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/cal-heatmap/dist/cal-heatmap.css" />
+</head>
+<body>
+    <div id="cal-heatmap"></div>
+    <script type="text/javascript">
+      const cal = new CalHeatmap();
+      cal.paint({
+        range: 3,
+        domain: { type: "month" },
+        subDomain: {
+          width: 15,
+          height: 15,
+          type: "day",
+          label: "D",
+          color: (t, v, backgroundColor) => {
+            return d3.hcl(backgroundColor).l > 0 ? "blue" : "red";
+          },
+        },
+      });
+    </script>
+</body>
+</html>
